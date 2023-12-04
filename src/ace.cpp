@@ -52,11 +52,10 @@ namespace ace
 
 	A_Motor launcherMotorRight(PORT_LAUNCHER_RIGHT, MOTOR_GEARSET_06, false);
 
-	A_Motor intakeMotorLeft(PORT_INTAKE_LEFT, MOTOR_GEARSET_18, false);
+	A_Motor intakeMotorLeft(PORT_INTAKE_LEFT, MOTOR_GEARSET_06, false);
 
-	A_Motor intakeMotorRight(PORT_INTAKE_RIGHT,MOTOR_GEARSET_18, true);
+	A_Motor intakeMotorRight(PORT_INTAKE_RIGHT,MOTOR_GEARSET_06, true);
 	
-	A_Motor intakeMotorTop(PORT_INTAKE_TOP, MOTOR_GEARSET_36, false);
 
 	/* ========================================================================= */
 	/*                              Class Definitions                             */
@@ -257,7 +256,7 @@ namespace ace
 		launcherMotorRight.move_voltage(0);
 		intakeMotorLeft.move_voltage(0);
 		intakeMotorRight.move_voltage(0);
-		intakeMotorTop.move_voltage(0);
+	
 
 		launcher_standby_enabled = false;
 
@@ -314,7 +313,6 @@ namespace ace
 		{
 			intakeMotorLeft.spin_percent(INTAKE_SPEED);
 			intakeMotorRight.spin_percent(INTAKE_SPEED);
-			intakeMotorTop.spin_percent(INTAKE_SPEED);
 
 		}
 
@@ -324,7 +322,6 @@ namespace ace
 			intake_timer.reset();
 			intakeMotorLeft.spin_percent(0);
 			intakeMotorRight.spin_percent(0);
-			intakeMotorTop.spin_percent(0);
 
 		}
 	}
@@ -334,13 +331,13 @@ namespace ace
 		if (enabled) {
 			intakeMotorLeft.spin_percent(-INTAKE_SPEED);
 			intakeMotorRight.spin_percent(-INTAKE_SPEED);
-			intakeMotorTop.spin_percent(-INTAKE_SPEED);
+		
 
 
 		}else {
 			intakeMotorLeft.spin_percent(0);
 			intakeMotorRight.spin_percent(0);
-			intakeMotorTop.spin_percent(0);
+			
 		}
 
 	}

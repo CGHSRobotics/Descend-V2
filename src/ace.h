@@ -72,18 +72,17 @@ namespace ace {
 	/* ========================================================================== */
 
 	/* --------------------------------- Chassis -------------------------------- */
-	#define PORT_CHASSIS_L_F 14
-	#define PORT_CHASSIS_L_M 9
-	#define PORT_CHASSIS_L_B 13
+	#define PORT_CHASSIS_L_F -14
+	#define PORT_CHASSIS_L_M -9
+	#define PORT_CHASSIS_L_B -13
 
 	#define PORT_CHASSIS_R_F 18
 	#define PORT_CHASSIS_R_M 8
 	#define PORT_CHASSIS_R_B 17
 
 	/* ------------------------- Other Motors / Devices ------------------------- */
-	#define PORT_INTAKE_LEFT 1
-	#define PORT_INTAKE_RIGHT 12
-	#define PORT_INTAKE_TOP -19
+	#define PORT_INTAKE_LEFT -1
+	#define PORT_INTAKE_RIGHT -12
 	#define PORT_LAUNCHER_LEFT 11
 	#define PORT_LAUNCHER_RIGHT 16
 	
@@ -187,7 +186,7 @@ namespace ace {
 	const float LAUNCHER_SPEED_CUTOFF = 5;
 
 	// Chassis Speeds ( * 1.27 to fit in range of [-127, 127])
-	const float DRIVE_SPEED = 95.0 * 1.27; // 87
+	const float DRIVE_SPEED = 75.0 * 1.27; // 87
 	const float DRIVE_SPEED_INTAKE = 25.0 * 1.27;
 	const float TURN_SPEED = 71.0 * 1.27; // 71
 	const float TURN_SPEED_SLOW = 45.0 * 1.27;
@@ -239,10 +238,7 @@ namespace ace {
 
 	// Motor for intake right
 	extern A_Motor intakeMotorRight;
-
-	//Motor for top intake
-	extern A_Motor intakeMotorTop;
-
+	
 	// Vision sensor
 	const pros::Vision visionSensor(PORT_VISION, pros::E_VISION_ZERO_CENTER);
 
