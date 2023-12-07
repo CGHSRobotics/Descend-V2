@@ -24,7 +24,7 @@ namespace ace::auton {
 		turn_chassis(-180, TURN_SPEED);
 		drive_chassis(46, DRIVE_SPEED);
 		turn_chassis(180, TURN_SPEED);
-		drive_chassis(-34, DRIVE_SPEED);
+		drive_chassis(-24, DRIVE_SPEED);
 	
 		//Go for more goals?
 	}
@@ -75,16 +75,15 @@ namespace ace::auton {
 	/*                                   Skills                                   */
 	/* ========================================================================== */
 	void skills() {
-		
-	}
-	/* actual skilss
 	
-	launch_auton(50000, LAUNCH_SPEED);
+	/*launch_auton(50000, LAUNCH_SPEED);
 	drive_chassis(24,DRIVE_SPEED);
 	turn_chassis(-90, TURN_SPEED);
 	drive_chassis(24, DRIVE_SPEED);
 	turn_speed(90, TURN_SPEED);
 	drive_speed(96, DRIVE_SPEED); */
+	}
+	
 
 	/* ========================================================================== */
 	/*                         Auton Function Definitions                         */
