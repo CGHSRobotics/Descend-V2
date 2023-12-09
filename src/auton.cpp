@@ -12,20 +12,32 @@ namespace ace::auton {
 	/*                               Score Auton                                   */
 	/* ========================================================================== */
 	void score() {
-		drive_chassis(43, DRIVE_SPEED);
-		turn_chassis(90, TURN_SPEED);
-		ace::intake_reverse(true);
+
+		
+		
+		
+		//chassis.set_drive_pid(43, DRIVE_SPEED, false);
+		//pros::delay(10000);
+
+		drive_chassis(70, DRIVE_SPEED);
+		turn_chassis(-90, TURN_SPEED);
+		/*ace::intake_reverse(true);
 		pros::delay(1000);
 		ace::intake_reverse(false);
-		drive_chassis(-8, DRIVE_SPEED);
-		turn_chassis(-90, TURN_SPEED);
-		drive_chassis(-20, DRIVE_SPEED);
+		drive_chassis(-50, DRIVE_SPEED);
+		/*turn_chassis(-180, TURN_SPEED);
+		drive_chassis(-30, DRIVE_SPEED);
+
+		drive_chassis(-15, DRIVE_SPEED);
+		
+		/*turn_chassis(-90, TURN_SPEED);
+		drive_chassis(65, DRIVE_SPEED);
 		drive_chassis(3,DRIVE_SPEED);
-		turn_chassis(-180, TURN_SPEED);
+		turn_chassis(-90, TURN_SPEED);
 		drive_chassis(46, DRIVE_SPEED);
 		turn_chassis(180, TURN_SPEED);
-		drive_chassis(-24, DRIVE_SPEED);
-	
+		drive_chassis(-24, DRIVE_SPEED);*/
+		
 		//Go for more goals?
 	}
 
@@ -40,10 +52,10 @@ namespace ace::auton {
 	/*                              Three Side Auton                              */
 	/* ========================================================================== */
 	void three_side() {
-		drive_chassis(48, DRIVE_SPEED);
+		/*drive_chassis(48, DRIVE_SPEED);
 		turn_chassis(180, TURN_SPEED);
 		drive_chassis(12, DRIVE_SPEED);
-		intake_toggle(true);
+		intake_toggle(true); */
 		// Dead
 	}
 
@@ -67,7 +79,9 @@ namespace ace::auton {
 		drive_chassis(46, DRIVE_SPEED);
 		turn_chassis(90, TURN_SPEED);
 		drive_chassis(34, DRIVE_SPEED);
+		
 		*/
+
 	// Dead
 	}
 
@@ -76,12 +90,17 @@ namespace ace::auton {
 	/* ========================================================================== */
 	void skills() {
 	
-	/*launch_auton(50000, LAUNCH_SPEED);
+	/*launch_auton(45000, LAUNCH_SPEED);
 	drive_chassis(24,DRIVE_SPEED);
 	turn_chassis(-90, TURN_SPEED);
 	drive_chassis(24, DRIVE_SPEED);
-	turn_speed(90, TURN_SPEED);
-	drive_speed(96, DRIVE_SPEED); */
+	turn_chassis(90, TURN_SPEED);
+	drive_chassis(96, DRIVE_SPEED); 
+	ace::flap_toggle(true)
+	drive_cahssis(40, DRIVE_SPEED);
+	ace::flap_toggle(false);
+	}*/
+
 	}
 	
 
@@ -121,7 +140,7 @@ namespace ace::auton {
 	/* --------------------------- Drive Chassis Auton -------------------------- */
 	void drive_chassis(float distance, float speed, bool wait) {
 
-		bool slew_enabled = distance >= 14;
+		bool slew_enabled = false;//distance >= 14;
 		chassis.set_drive_pid(distance, speed, slew_enabled);
 		if (wait)
 		{
@@ -137,6 +156,7 @@ namespace ace::auton {
 			chassis.wait_drive();
 		}
 	}
+
 
 	/* ------------------------------ Launch Auton ------------------------------ */
 	/*void launch_auton(float time, float speed, bool isLong, bool early_exit) {

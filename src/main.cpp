@@ -75,20 +75,21 @@ void competition_initialize() {}
 /* ========================================================================== */
 void autonomous()
 {
-
 	chassis.reset_pid_targets();               // Resets PID targets to 0
 	chassis.reset_gyro();                      // Reset gyro position to 0
 	chassis.reset_drive_sensor();              // Reset drive sensors to 0
 	chassis.set_drive_brake(MOTOR_BRAKE_HOLD); // Set motors to hold.  This helps autonomous consistency.
 
-	std::string curr_auton = ace::auton::auton_selection[ace::auton::auton_selection_index];
+	//std::string curr_auton = ace::auton::auton_selection[ace::auton::auton_selection_index];
 
 	ace::reset_motors();
 
+	//ace::flap_toggle(true);
+	//ace::auton::drive_chassis(43, ace::DRIVE_SPEED);
 	ace::auton::score();
 	
-	/*
-	if (curr_auton == "score")
+	
+	/*if (curr_auton == "score")
 	{
 		ace::auton::score();
 	}
@@ -99,8 +100,8 @@ void autonomous()
 	else if (curr_auton == "skills")
 	{
 		ace::auton::skills();
-	}
-	*/
+	}*/
+	
 	
 }
 

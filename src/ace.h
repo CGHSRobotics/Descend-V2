@@ -75,18 +75,18 @@ namespace ace {
 	#define PORT_CHASSIS_L_F -8
 	#define PORT_CHASSIS_L_B -18
 
-	#define PORT_CHASSIS_R_F -20
+	#define PORT_CHASSIS_R_F 15
 	#define PORT_CHASSIS_R_B 11
 
 	/* ------------------------- Other Motors / Devices ------------------------- */
 	#define PORT_INTAKE_LEFT 6
 	#define PORT_INTAKE_RIGHT 13
-	#define PORT_LAUNCHER_LEFT 11
-	#define PORT_LAUNCHER_RIGHT -16
+	#define PORT_LAUNCHER_LEFT 20
+	#define PORT_LAUNCHER_RIGHT -4
 	
 
 	#define PORT_VISION 10
-	#define PORT_IMU 15
+	#define PORT_IMU 
 
 	/* ------------------------------- ADI Devices ------------------------------ */
  
@@ -178,13 +178,13 @@ namespace ace {
 
 	// Launcher Speeds
 	
-	const float LAUNCH_SPEED = 80.0;
+	const float LAUNCH_SPEED = 95.0;
 	
 	const float LAUNCH_SPEED_STANDBY = LAUNCH_SPEED;
 	const float LAUNCHER_SPEED_CUTOFF = 5;
 
 	// Chassis Speeds ( * 1.27 to fit in range of [-127, 127])
-	const float DRIVE_SPEED = 75.0 * 1.27; // 87
+	const float DRIVE_SPEED = 87.0 * 1.27; // 87
 	const float DRIVE_SPEED_INTAKE = 25.0 * 1.27;
 	const float TURN_SPEED = 71.0 * 1.27; // 71
 	const float TURN_SPEED_SLOW = 45.0 * 1.27;

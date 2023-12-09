@@ -48,13 +48,13 @@ namespace ace
 	// leds
 	pros::ADILed led(PORT_LED, 60);
 
-	A_Motor launcherMotorLeft(PORT_LAUNCHER_LEFT, MOTOR_GEARSET_06, true);
+	A_Motor launcherMotorLeft(PORT_LAUNCHER_LEFT, MOTOR_GEARSET_06, false);
 
 	A_Motor launcherMotorRight(PORT_LAUNCHER_RIGHT, MOTOR_GEARSET_06, false);
 
 	A_Motor intakeMotorLeft(PORT_INTAKE_LEFT, MOTOR_GEARSET_06, false);
 
-	A_Motor intakeMotorRight(PORT_INTAKE_RIGHT,MOTOR_GEARSET_06, true);
+	A_Motor intakeMotorRight(PORT_INTAKE_RIGHT,MOTOR_GEARSET_06, false);
 	
 
 	/* ========================================================================= */
@@ -226,7 +226,8 @@ namespace ace
 	
 	void launch(float speed){
 		
-		launcherMotorRight.move_voltage(speed * 120);	
+		launcherMotorRight.move_voltage(speed * 120);
+		launcherMotorLeft.move_voltage(speed * 120);	
 
 	}
 
@@ -337,7 +338,6 @@ namespace ace
 		}else {
 			intakeMotorLeft.spin_percent(0);
 			intakeMotorRight.spin_percent(0);
-			
 		}
 
 	}
