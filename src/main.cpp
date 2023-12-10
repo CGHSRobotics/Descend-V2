@@ -87,7 +87,7 @@ void autonomous()
 	//ace::flap_toggle(true);
 	//ace::auton::drive_chassis(43, ace::DRIVE_SPEED);
 	ace::auton::score();
-	
+	//ace::auton::skills();
 	
 	/*if (curr_auton == "score")
 	{
@@ -100,8 +100,8 @@ void autonomous()
 	else if (curr_auton == "skills")
 	{
 		ace::auton::skills();
-	}*/
-	
+	}
+	*/
 	
 }
 
@@ -166,9 +166,11 @@ void opcontrol()
 		else {	
       		ace::launch_enabled = false;
 			ace::launch_reverse_enabled = false;
-		// Endgame Enabled
-		ace::endgame_enabled = ace::btn_endgame.get_press();
 		*/
+		
+		 //Endgame Enabled
+		ace::endgame_enabled = ace::btn_endgame.get_press();
+		
 
 		// Flapjack Enabled
 		if (ace::btn_flap.get_press_new())

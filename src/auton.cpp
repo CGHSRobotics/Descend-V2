@@ -20,15 +20,15 @@ namespace ace::auton {
 		//pros::delay(10000);
 
 		drive_chassis(70, DRIVE_SPEED);
-		turn_chassis(-90, TURN_SPEED);
-		/*ace::intake_reverse(true);
+		turn_chassis(90, TURN_SPEED);
+		ace::intake_reverse(true);
 		pros::delay(1000);
 		ace::intake_reverse(false);
-		drive_chassis(-50, DRIVE_SPEED);
-		/*turn_chassis(-180, TURN_SPEED);
 		drive_chassis(-30, DRIVE_SPEED);
+		turn_chassis(270, TURN_SPEED);
+		drive_chassis(-50, DRIVE_SPEED);
 
-		drive_chassis(-15, DRIVE_SPEED);
+	
 		
 		/*turn_chassis(-90, TURN_SPEED);
 		drive_chassis(65, DRIVE_SPEED);
@@ -90,18 +90,19 @@ namespace ace::auton {
 	/* ========================================================================== */
 	void skills() {
 	
-	/*launch_auton(45000, LAUNCH_SPEED);
+	ace::launch(LAUNCH_SPEED);
+	pros::delay(45000);
 	drive_chassis(24,DRIVE_SPEED);
 	turn_chassis(-90, TURN_SPEED);
 	drive_chassis(24, DRIVE_SPEED);
 	turn_chassis(90, TURN_SPEED);
 	drive_chassis(96, DRIVE_SPEED); 
-	ace::flap_toggle(true)
-	drive_cahssis(40, DRIVE_SPEED);
+	ace::flap_toggle(true);
+	drive_chassis(40, DRIVE_SPEED);
 	ace::flap_toggle(false);
-	}*/
-
 	}
+
+	
 	
 
 	/* ========================================================================== */

@@ -4,27 +4,23 @@
 
 Drive chassis(
 	// Left Chassis Ports (negative port will reverse it!)
-	{ PORT_CHASSIS_L_F, PORT_CHASSIS_L_B }
+	{ PORT_CHASSIS_L_F, PORT_CHASSIS_L_B },
 
 	// Right Chassis Ports (negative port will reverse it!)
-	,
-	{ PORT_CHASSIS_R_F,  PORT_CHASSIS_R_B }
+	{ PORT_CHASSIS_R_F,  PORT_CHASSIS_R_B },
 
 	// IMU Port
-	,
-	PORT_IMU
+	PORT_IMU,
 
 	// Wheel Diameter (Remember, 4" wheels are actually 4.125!)
-	,
-	4.125
+	4.125,
 
 	// Cartridge RPM
-	,
-	600
+	600,
 
 	// External Gear Ratio (MUST BE DECIMAL)
-	,
-	0.8);
+	0.8
+);
 
 
 // partner controller
@@ -296,12 +292,12 @@ namespace ace
 		{
 			if (endgame_timer.done())
 			{
-				endgamePneumatics.set_value(0);
+				//endgamePneumatics.set_value(0);
 				return;
 			}
 
 			endgame_timer.update(20);
-			endgamePneumatics.set_value(0);
+			//endgamePneumatics.set_value(0);
 		}
 	}
 

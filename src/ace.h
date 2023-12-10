@@ -86,11 +86,11 @@ namespace ace {
 	
 
 	#define PORT_VISION 10
-	#define PORT_IMU 
+	#define PORT_IMU 16	
 
 	/* ------------------------------- ADI Devices ------------------------------ */
  
-	#define PORT_PNEU_ENDGAME { INTERNAL_ADI_PORT, 'A' }
+	#define PORT_PNEU_ENDGAME { INTERNAL_ADI_PORT, 'G' }
 
 	#define PORT_PNEU_FLAP { INTERNAL_ADI_PORT, 'H' }
 
@@ -274,7 +274,7 @@ namespace ace {
 	//static Btn_Digi btn_launch_reverse(pros::E_CONTROLLER_DIGITAL_R2, cntr_master);
 
 	// Custom Button for Endgame
-	static Btn_Digi btn_endgame(pros::E_CONTROLLER_DIGITAL_DOWN, cntr_master);
+	static Btn_Digi btn_endgame(pros::E_CONTROLLER_DIGITAL_UP, cntr_master);
 
 	// Custom Button for Flapjack Toggle
 	static Btn_Digi btn_flap(pros::E_CONTROLLER_DIGITAL_X, cntr_master);
