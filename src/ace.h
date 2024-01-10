@@ -81,8 +81,8 @@ namespace ace {
 	/* ------------------------- Other Motors / Devices ------------------------- */
 	#define PORT_INTAKE_LEFT 6
 	#define PORT_INTAKE_RIGHT 13
-	#define PORT_LAUNCHER_LEFT 20
-	#define PORT_LAUNCHER_RIGHT -4
+	#define PORT_LAUNCHER_LEFT -20
+	#define PORT_LAUNCHER_RIGHT 4
 	
 
 	#define PORT_VISION 10
@@ -178,7 +178,7 @@ namespace ace {
 
 	// Launcher Speeds
 	
-	const float LAUNCH_SPEED = 95.0;
+	const float LAUNCH_SPEED = 100.0;
 	
 	const float LAUNCH_SPEED_STANDBY = LAUNCH_SPEED;
 	const float LAUNCHER_SPEED_CUTOFF = 5;
