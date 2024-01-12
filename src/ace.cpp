@@ -44,13 +44,15 @@ namespace ace
 	// leds
 	pros::ADILed led(PORT_LED, 60);
 
-	A_Motor launcherMotorLeft(PORT_LAUNCHER_LEFT, MOTOR_GEARSET_06, false);
+	A_Motor launcherMotorLeft(PORT_LAUNCHER_LEFT, MOTOR_GEARSET_36, false);
 
-	A_Motor launcherMotorRight(PORT_LAUNCHER_RIGHT, MOTOR_GEARSET_06, false);
+	A_Motor launcherMotorRight(PORT_LAUNCHER_RIGHT, MOTOR_GEARSET_36, false);	//red
 
-	A_Motor intakeMotorLeft(PORT_INTAKE_LEFT, MOTOR_GEARSET_06, false);
+	A_Motor intakeMotorLeft(PORT_INTAKE_LEFT, MOTOR_GEARSET_06, false); //blue
 
 	A_Motor intakeMotorRight(PORT_INTAKE_RIGHT,MOTOR_GEARSET_06, false);
+
+	A_Motor BlockerMotor(PORT_BLOCKER,MOTOR_GEARSET_18 , false);	//greeen
 	
 
 	/* ========================================================================= */
@@ -253,6 +255,7 @@ namespace ace
 		launcherMotorRight.move_voltage(0);
 		intakeMotorLeft.move_voltage(0);
 		intakeMotorRight.move_voltage(0);
+		BlockerMotor.move_voltage(0);
 	
 
 		launcher_standby_enabled = false;
@@ -338,6 +341,28 @@ namespace ace
 
 	}
 
+	void blocker_up(bool enabled)
+	{
+		if(enabled) {
+			BlockerMotor.spin_percent(100);
+
+		}
+		else s{
+			BlockerMotor.spin_percent(0);
+		}
+	}
+
+	void blocker_down(bool enabled)
+	{
+		if (enabled){
+			BlockerMotor.spin_percent(-100);
+
+		}
+		else {
+			BlockerMotor.spin_percent(0);
+		}
+		
+	}
 	/* ------------------------------ Vision Sensor ----------------------------- */
 	double theta = 0;
 	void auto_target(bool enabled)

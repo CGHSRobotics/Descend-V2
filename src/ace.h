@@ -81,12 +81,13 @@ namespace ace {
 	/* ------------------------- Other Motors / Devices ------------------------- */
 	#define PORT_INTAKE_LEFT 6
 	#define PORT_INTAKE_RIGHT 13
-	#define PORT_LAUNCHER_LEFT -20
+	#define PORT_LAUNCHER_LEFT -14
 	#define PORT_LAUNCHER_RIGHT 4
+	#define PORT_BLOCKER 19
 	
 
 	#define PORT_VISION 10
-	#define PORT_IMU 16	
+	#define PORT_IMU 3	
 
 	/* ------------------------------- ADI Devices ------------------------------ */
  
@@ -159,6 +160,8 @@ namespace ace {
 
 	static bool intake_enabled = false;
 	static bool intake_reverse_enabled = false;
+	static bool blocker_up = false;
+	static bool blocker_down = false;
 	//static bool launch_short_enabled = false;
 	//static bool launch_long_enabled = false;
 	static bool launch_enabled = false;
@@ -236,6 +239,10 @@ namespace ace {
 
 	// Motor for intake right
 	extern A_Motor intakeMotorRight;
+
+	//Motor for blocker 
+
+	extern A_Motor BlockerMotor;
 	
 	// Vision sensor
 	const pros::Vision visionSensor(PORT_VISION, pros::E_VISION_ZERO_CENTER);
@@ -254,6 +261,7 @@ namespace ace {
 	const pros::ADILightSensor lightSensor(PORT_SENSOR_LIGHT);
 
 	extern pros::ADILed led;
+
 
 	/* ========================================================================== */
 	/*                                   Buttons                                  */
@@ -274,10 +282,15 @@ namespace ace {
 	//static Btn_Digi btn_launch_reverse(pros::E_CONTROLLER_DIGITAL_R2, cntr_master);
 
 	// Custom Button for Endgame
-	static Btn_Digi btn_endgame(pros::E_CONTROLLER_DIGITAL_UP, cntr_master);
+	static Btn_Digi btn_endgame(pros::E_CONTROLLER_DIGITAL_LEFT, cntr_master);
 
 	// Custom Button for Flapjack Toggle
 	static Btn_Digi btn_flap(pros::E_CONTROLLER_DIGITAL_X, cntr_master);
+
+	//Custon Button for blocker
+	static Btn_Digi btn_blocker_up(pros::E_CONTROLLER_DIGITAL_UP);
+
+	static Btn_Digi btn_blocker_down(pros::E_CONTROLLER_DIGITAL_DOWN);
 
 	/* ---------------------------------- Both ---------------------------------- */
 
@@ -330,6 +343,17 @@ namespace ace {
 	 */
 	extern void intake_reverse(bool enabled);
 
+/**
+	 * @brief 	runs intake reverse
+	 *
+	 */
+	extern void blocker_up(bool enabled);
+
+	/**
+	 * @brief 	runs intake reverse
+	 *
+	 */
+	extern void blocker_down(bool enabled);
 
 	/**
 	 * @brief	launch function, called once per frame

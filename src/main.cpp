@@ -51,6 +51,7 @@ void initialize()
 	ace::intakeMotorRight.init();
 	ace::launcherMotorLeft.init();
 	pros::lcd::shutdown();
+	ace::BlockerMotor.init();
 
 	ace::endgame_timer.currTime = ace::endgame_timer.maxTime + 100;
 
@@ -157,6 +158,10 @@ void opcontrol()
 			//ace::launch_reverse_enabled = false;
     	}
 
+
+
+
+
 		// Reverse Launcher
 		/*if (ace::btn_launch_reverse.get_press())
 		{
@@ -167,9 +172,38 @@ void opcontrol()
       		ace::launch_enabled = false;
 			ace::launch_reverse_enabled = false;
 		*/
-		
+
+
+
+
+		//Blocker Reverse
+		if (ace::btn_blocker_up.get_press())
+		{
+			ace:: btn_blocker_up = true;
+			ace:: btn_blocker_down = false;
+
+		} else 
+		{
+			ace:: btn_blocker_up= false;
+		}
+
+
+		// Blocker Reverse
+		if (ace::btn_blocker_down.get_press())
+		{
+			ace::btn_blocker_up= false;
+			ace::btn_blocker_down = true;
+		}
+		else
+		{
+			ace::btn_blocker_down = false;
+		}
+
 		 //Endgame Enabled
 		ace::endgame_enabled = ace::btn_endgame.get_press();
+
+
+
 		
 
 		// Flapjack Enabled
