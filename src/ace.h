@@ -72,7 +72,7 @@ namespace ace {
 	/* ========================================================================== */
 
 	/* --------------------------------- Chassis -------------------------------- */
-	#define PORT_CHASSIS_L_F -8
+	#define PORT_CHASSIS_L_F 8
 	#define PORT_CHASSIS_L_B -18
 
 	#define PORT_CHASSIS_R_F 15
@@ -87,7 +87,7 @@ namespace ace {
 	
 
 	#define PORT_VISION 10
-	#define PORT_IMU 3	
+	#define PORT_IMU 5
 
 	/* ------------------------------- ADI Devices ------------------------------ */
  

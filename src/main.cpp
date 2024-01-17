@@ -87,8 +87,8 @@ void autonomous()
 
 	//ace::flap_toggle(true);
 	//ace::auton::drive_chassis(43, ace::DRIVE_SPEED);
-	ace::auton::score();
-	//ace::auton::skills();
+	//ace::auton::score();
+	ace::auton::skills();
 	
 	/*if (curr_auton == "score")
 	{
@@ -281,10 +281,28 @@ void opcontrol()
 			}
 			*/
 
+			//blocker up
+			if(ace::blocker_up_enabled){
+				ace::blocker_up(true);
+				break;
+			}
+			else
+			{
+				ace::blocker_up(false);
+			}
 
+			//blocker up
+			if(ace::blocker_down){
+				ace::blocker_down(true);
+				break;
+			}
+			else
+			{
+				ace::blocker_down(false);
+			}
 
 			// Intake Reverse
-			if (ace::intake_reverse_enabled)
+			if (ace::intake_reverse)
 			{
 				ace::intake_reverse(true);
 				break;

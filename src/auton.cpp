@@ -93,6 +93,8 @@ namespace ace::auton {
 	/* ========================================================================== */
 	void skills() {
 	
+
+	drive_chassis(24, DRIVE_SPEED);
 	/*ace::launch(LAUNCH_SPEED);
 	pros::delay(45000);
 	drive_chassis(24,DRIVE_SPEED);

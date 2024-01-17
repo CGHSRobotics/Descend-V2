@@ -347,7 +347,7 @@ namespace ace
 			BlockerMotor.spin_percent(100);
 
 		}
-		else s{
+		else{
 			BlockerMotor.spin_percent(0);
 		}
 	}
