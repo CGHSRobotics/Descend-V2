@@ -73,15 +73,15 @@ namespace ace {
 
 	/* --------------------------------- Chassis -------------------------------- */
 	#define PORT_CHASSIS_L_F 8
-	#define PORT_CHASSIS_L_B -18
+	#define PORT_CHASSIS_L_B 18
 
-	#define PORT_CHASSIS_R_F 15
-	#define PORT_CHASSIS_R_B 11
+	#define PORT_CHASSIS_R_F -15
+	#define PORT_CHASSIS_R_B -11
 
 	/* ------------------------- Other Motors / Devices ------------------------- */
 	#define PORT_INTAKE_LEFT 6
 	#define PORT_INTAKE_RIGHT 13
-	#define PORT_LAUNCHER_LEFT -14
+	#define PORT_LAUNCHER_LEFT 14
 	#define PORT_LAUNCHER_RIGHT 4
 	#define PORT_BLOCKER 19
 	
@@ -161,6 +161,7 @@ namespace ace {
 	static bool intake_enabled = false;
 	static bool intake_reverse_enabled = false;
 	static bool blocker_enabled = false;
+	static bool blocker_down_enabled = false;
 	//static bool launch_short_enabled = false;
 	//static bool launch_long_enabled = false;
 	static bool launch_enabled = false;
@@ -275,7 +276,7 @@ namespace ace {
 	static Btn_Digi btn_intake_reverse(pros::E_CONTROLLER_DIGITAL_L2, cntr_master);
 
 	// Custom Button for Launch
-	static Btn_Digi btn_launch(pros::E_CONTROLLER_DIGITAL_R1, cntr_master);
+	static Btn_Digi btn_launch(pros::E_CONTROLLER_DIGITAL_UP, cntr_master);
 
 	// Custon Button for Launch Reverse
 	//static Btn_Digi btn_launch_reverse(pros::E_CONTROLLER_DIGITAL_R2, cntr_master);
@@ -287,9 +288,9 @@ namespace ace {
 	static Btn_Digi btn_flap(pros::E_CONTROLLER_DIGITAL_X, cntr_master);
 
 	//Custon Button for blocker
-	static Btn_Digi btn_blocker_up(pros::E_CONTROLLER_DIGITAL_UP, cntr_master);
+	static Btn_Digi btn_blocker_up(pros::E_CONTROLLER_DIGITAL_R1, cntr_master);
 
-	static Btn_Digi btn_blocker_down(pros::E_CONTROLLER_DIGITAL_DOWN, cntr_master);
+	static Btn_Digi btn_blocker_down(pros::E_CONTROLLER_DIGITAL_R2, cntr_master);
 
 	/* ---------------------------------- Both ---------------------------------- */
 

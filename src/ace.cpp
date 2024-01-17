@@ -16,10 +16,10 @@ Drive chassis(
 	4.125,
 
 	// Cartridge RPM
-	600,
+	200,
 
 	// External Gear Ratio (MUST BE DECIMAL)
-	0.8
+	1.25
 );
 
 
@@ -344,7 +344,7 @@ namespace ace
 	void blocker_up(bool enabled)
 	{
 		if(enabled) {
-			BlockerMotor.spin_percent(100);
+			BlockerMotor.spin_percent(LAUNCH_SPEED);
 
 		}
 		else{
@@ -355,7 +355,7 @@ namespace ace
 	void blocker_down(bool enabled)
 	{
 		if (enabled){
-			BlockerMotor.spin_percent(-100);
+			BlockerMotor.spin_percent(-LAUNCH_SPEED);
 
 		}
 		else {

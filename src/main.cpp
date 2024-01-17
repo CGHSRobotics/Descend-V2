@@ -176,17 +176,29 @@ void opcontrol()
 
 
 
-		//Blocker Reverse
-		if (ace::btn_blocker_up.get_press())
+		//Blocker Up
+		if (ace::btn_blocker_up.get_press_new())
 		{
 			ace::blocker_enabled = true;
-		}
+			ace::blocker_down_enabled = false;
 
-		// Blocker Reverse
-		if (ace::btn_blocker_down.get_press())
+		} else {
+			ace::blocker_enabled = false;
+			ace::blocker_down_enabled= false;
+
+
+		}
+		//bLocker down
+		if (ace::btn_blocker_down.get_press_new())
 		{
 			ace::blocker_enabled = false;
+			ace::blocker_down_enabled = true; 
 		}
+			else {
+				ace::blocker_enabled = false;
+				ace::blocker_down_enabled = false;
+
+			}
 
 		 //Endgame Enabled
 		ace::endgame_enabled = ace::btn_endgame.get_press();
@@ -208,7 +220,7 @@ void opcontrol()
 		}
 
 		// Auton Page Up
-		if (ace::btn_auton.get_press_new())
+		if (ace::btn_auton.get_press())
 		{
 			ace::auton::auton_page_up();
 		}
@@ -220,7 +232,8 @@ void opcontrol()
 		}
 
 		// Launcher Speed Increase
-		if (ace::btn_launch_speed_increase.get_press_new()) 
+		if (ace::btn_launch_speed_increase.get_press
+		()) 
 		{
 			ace::launch_speed += 2.5;
 		}
