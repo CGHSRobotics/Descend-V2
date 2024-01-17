@@ -282,7 +282,7 @@ void opcontrol()
 			*/
 
 			//blocker up
-			if(ace::blocker_up_enabled){
+			if(ace::blocker_up){
 				ace::blocker_up(true);
 				break;
 			}
@@ -302,7 +302,7 @@ void opcontrol()
 			}
 
 			// Intake Reverse
-			if (ace::intake_reverse)
+			if (ace::intake_reverse_enabled)
 			{
 				ace::intake_reverse(true);
 				break;
