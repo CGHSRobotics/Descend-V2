@@ -94,17 +94,17 @@ namespace ace::auton {
 	void skills() {
 	
 
-	drive_chassis(24, DRIVE_SPEED);
-	/*ace::launch(LAUNCH_SPEED);
-	pros::delay(45000);
-	drive_chassis(24,DRIVE_SPEED);
-	turn_chassis(-90, TURN_SPEED);
-	drive_chassis(24, DRIVE_SPEED);
-	turn_chassis(90, TURN_SPEED);
-	drive_chassis(96, DRIVE_SPEED); 
-	ace::flap_toggle(true);
-	drive_chassis(40, DRIVE_SPEED);
-	ace::flap_toggle(false);*/
+		drive_chassis(24, DRIVE_SPEED);
+		/*ace::launch(LAUNCH_SPEED);
+		pros::delay(45000);
+		drive_chassis(24,DRIVE_SPEED);
+		turn_chassis(-90, TURN_SPEED);
+		drive_chassis(24, DRIVE_SPEED);
+		turn_chassis(90, TURN_SPEED);
+		drive_chassis(96, DRIVE_SPEED); 
+		ace::flap_toggle(true);
+		drive_chassis(40, DRIVE_SPEED);
+		ace::flap_toggle(false);*/
 	}
 
 	

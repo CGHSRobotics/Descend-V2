@@ -179,24 +179,13 @@ void opcontrol()
 		//Blocker Reverse
 		if (ace::btn_blocker_up.get_press())
 		{
-			ace:: btn_blocker_up = true;
-			ace:: btn_blocker_down = false;
-
-		} else 
-		{
-			ace:: btn_blocker_up= false;
+			ace::blocker_enabled = true;
 		}
-
 
 		// Blocker Reverse
 		if (ace::btn_blocker_down.get_press())
 		{
-			ace::btn_blocker_up= false;
-			ace::btn_blocker_down = true;
-		}
-		else
-		{
-			ace::btn_blocker_down = false;
+			ace::blocker_enabled = false;
 		}
 
 		 //Endgame Enabled
@@ -282,25 +271,16 @@ void opcontrol()
 			*/
 
 			//blocker up
-			if(ace::blocker_up){
+			if(ace::blocker_enabled){
 				ace::blocker_up(true);
-				break;
+				ace::blocker_down(false);
 			}
 			else
 			{
 				ace::blocker_up(false);
-			}
-
-			//blocker up
-			if(ace::blocker_down){
 				ace::blocker_down(true);
-				break;
 			}
-			else
-			{
-				ace::blocker_down(false);
-			}
-
+			
 			// Intake Reverse
 			if (ace::intake_reverse_enabled)
 			{
