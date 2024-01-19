@@ -293,7 +293,11 @@ void opcontrol()
 				ace::blocker_up(false);
 				ace::blocker_down(true);
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> 243e1ca (erorosfjs)
 			// Intake Reverse
 			if (ace::intake_reverse_enabled)
 			{
