@@ -348,14 +348,14 @@ namespace ace
 
 		}
 		else{
-			BlockerMotor.spin_percent(0);
+			BlockerMotor.spin_percent(40);
 		}
 	}
 
 	void blocker_down(bool enabled)
 	{
 		if (enabled){
-			BlockerMotor.spin_percent(-LAUNCH_SPEED);
+			BlockerMotor.spin_percent(-40);
 
 		}
 		else {

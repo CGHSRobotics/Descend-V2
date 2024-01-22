@@ -181,24 +181,13 @@ void opcontrol()
 		{
 			ace::blocker_enabled = true;
 			ace::blocker_down_enabled = false;
-
-		} else {
-			ace::blocker_enabled = false;
-			ace::blocker_down_enabled= false;
-
-
 		}
 		//bLocker down
 		if (ace::btn_blocker_down.get_press_new())
 		{
 			ace::blocker_enabled = false;
-			ace::blocker_down_enabled = true; 
+	
 		}
-			else {
-				ace::blocker_enabled = false;
-				ace::blocker_down_enabled = false;
-
-			}
 
 		 //Endgame Enabled
 		ace::endgame_enabled = ace::btn_endgame.get_press();
@@ -291,7 +280,7 @@ void opcontrol()
 			else
 			{
 				ace::blocker_up(false);
-				ace::blocker_down(true);
+				ace::blocker_down(false);
 			}
 <<<<<<< HEAD
 			
