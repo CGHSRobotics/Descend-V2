@@ -288,9 +288,9 @@ namespace ace {
 	static Btn_Digi btn_flap(pros::E_CONTROLLER_DIGITAL_X, cntr_master);
 
 	//Custon Button for blocker
-	static Btn_Digi btn_blocker_up(pros::E_CONTROLLER_DIGITAL_R1, cntr_master);
+	//static Btn_Digi btn_blocker_up(pros::E_CONTROLLER_DIGITAL_R1, cntr_master);
 
-	static Btn_Digi btn_blocker_down(pros::E_CONTROLLER_DIGITAL_R2, cntr_master);
+	//static Btn_Digi btn_blocker_down(pros::E_CONTROLLER_DIGITAL_R2, cntr_master);
 
 	/* ---------------------------------- Both ---------------------------------- */
 

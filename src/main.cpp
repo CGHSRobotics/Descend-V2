@@ -51,7 +51,7 @@ void initialize()
 	ace::intakeMotorRight.init();
 	ace::launcherMotorLeft.init();
 	pros::lcd::shutdown();
-	ace::BlockerMotor.init();
+	//ace::BlockerMotor.init();
 
 	ace::endgame_timer.currTime = ace::endgame_timer.maxTime + 100;
 
@@ -175,7 +175,7 @@ void opcontrol()
 
 
 
-
+	/*
 		//Blocker Up
 		if (ace::btn_blocker_up.get_press_new())
 		{
@@ -188,7 +188,7 @@ void opcontrol()
 			ace::blocker_enabled = false;
 	
 		}
-
+*/
 		 //Endgame Enabled
 		ace::endgame_enabled = ace::btn_endgame.get_press();
 
@@ -273,6 +273,7 @@ void opcontrol()
 			*/
 
 			//blocker up
+			/*
 			if(ace::blocker_enabled){
 				ace::blocker_up(true);
 				ace::blocker_down(false);
@@ -282,11 +283,7 @@ void opcontrol()
 				ace::blocker_up(false);
 				ace::blocker_down(false);
 			}
-<<<<<<< HEAD
-			
-=======
-
->>>>>>> 243e1ca (erorosfjs)
+			*/
 			// Intake Reverse
 			if (ace::intake_reverse_enabled)
 			{
