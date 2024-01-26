@@ -72,11 +72,11 @@ namespace ace {
 	/* ========================================================================== */
 
 	/* --------------------------------- Chassis -------------------------------- */
-	#define PORT_CHASSIS_L_F 8
-	#define PORT_CHASSIS_L_B 18
+	#define PORT_CHASSIS_L_F -8
+	#define PORT_CHASSIS_L_B -18
 
-	#define PORT_CHASSIS_R_F -15
-	#define PORT_CHASSIS_R_B -11
+	#define PORT_CHASSIS_R_F 15
+	#define PORT_CHASSIS_R_B 11
 
 	/* ------------------------- Other Motors / Devices ------------------------- */
 	#define PORT_INTAKE_LEFT 6
