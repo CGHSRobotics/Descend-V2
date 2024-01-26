@@ -122,7 +122,7 @@ void opcontrol()
 		/* ========================================================================== */
 		
 		// Intake Toggle
-		if (ace::btn_intake_toggle.get_press())
+		if (ace::btn_intake.get_press())
 		{
 			ace::intake_enabled = true;
 			ace::intake_reverse_enabled = false;
@@ -150,13 +150,10 @@ void opcontrol()
 		// Launcher
 		if (ace::btn_launch.get_press())
 		{
-      		ace::launch_enabled = true;
+      		ace::launch_enabled = !ace::launch_enabled;
 			//ace::launch_reverse_enabled = false;
 		} 
-		else {	
-      		ace::launch_enabled = false;
-			//ace::launch_reverse_enabled = false;
-    	}
+	
 
 
 
@@ -298,12 +295,12 @@ void opcontrol()
 			// Intake Toggle
 			if (ace::intake_enabled)
 			{
-				ace::intake_toggle(true);
+				ace::intake(true);
 				break;
 			}
 			else
 			{
-				ace::intake_toggle(false);
+				ace::intake(false);
 			}
 
 			// flapjack

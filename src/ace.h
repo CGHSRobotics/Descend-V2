@@ -79,10 +79,10 @@ namespace ace {
 	#define PORT_CHASSIS_R_B 11
 
 	/* ------------------------- Other Motors / Devices ------------------------- */
-	#define PORT_INTAKE_LEFT 6
+	#define PORT_INTAKE_LEFT 4
 	#define PORT_INTAKE_RIGHT 13
 	#define PORT_LAUNCHER_LEFT 14
-	#define PORT_LAUNCHER_RIGHT 4
+	#define PORT_LAUNCHER_RIGHT 6
 	#define PORT_BLOCKER 19
 	
 
@@ -93,7 +93,7 @@ namespace ace {
  
 	#define PORT_PNEU_ENDGAME { INTERNAL_ADI_PORT, 'G' }
 
-	#define PORT_PNEU_FLAP { INTERNAL_ADI_PORT, 'H' }
+	#define PORT_PNEU_FLAP { INTERNAL_ADI_PORT, 'A' }
 
 	#define PORT_SENSOR_LIGHT { INTERNAL_ADI_PORT, 'C' }
 
@@ -270,7 +270,7 @@ namespace ace {
 	/* --------------------------------- Master --------------------------------- */
 
 	// Custom Button for Intake Toggle
-	static Btn_Digi btn_intake_toggle(pros::E_CONTROLLER_DIGITAL_L1, cntr_master);
+	static Btn_Digi btn_intake(pros::E_CONTROLLER_DIGITAL_L1, cntr_master);
 
 	// Custom Button for Intake Reverse
 	static Btn_Digi btn_intake_reverse(pros::E_CONTROLLER_DIGITAL_L2, cntr_master);
@@ -287,7 +287,7 @@ namespace ace {
 	// Custom Button for Flapjack Toggle
 	static Btn_Digi btn_flap(pros::E_CONTROLLER_DIGITAL_X, cntr_master);
 
-	//Custon Button for blocker
+	//Custom Button for blocker
 	//static Btn_Digi btn_blocker_up(pros::E_CONTROLLER_DIGITAL_R1, cntr_master);
 
 	//static Btn_Digi btn_blocker_down(pros::E_CONTROLLER_DIGITAL_R2, cntr_master);
@@ -335,7 +335,7 @@ namespace ace {
 	 * @brief 	runs intake forward
 	 *
 	 */
-	extern void intake_toggle(bool enabled);
+	extern void intake(bool enabled);
 
 	/**
 	 * @brief 	runs intake reverse

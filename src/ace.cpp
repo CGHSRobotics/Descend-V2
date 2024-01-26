@@ -306,13 +306,13 @@ namespace ace
 
 
 
-	void intake_toggle(bool enabled)
+	void intake(bool enabled)
 	{
 		// intake enabled
 		if (enabled)
 		{
 			intakeMotorLeft.spin_percent(INTAKE_SPEED);
-			intakeMotorRight.spin_percent(INTAKE_SPEED);
+			
 
 		}
 
@@ -321,7 +321,7 @@ namespace ace
 		{
 			intake_timer.reset();
 			intakeMotorLeft.spin_percent(0);
-			intakeMotorRight.spin_percent(0);
+			
 
 		}
 	}
