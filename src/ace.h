@@ -193,6 +193,9 @@ namespace ace {
 	const float TURN_SPEED_SLOW = 45.0 * 1.27;
 	extern bool curr_launching;
 
+	const float AUTON_DRIVE_SPEED = -87 * 1.27;
+	const float AUTON_TURN_SPEED = 71 * 1.27;
+
 	/* --------------------------- Custom Motor Class --------------------------- */
 	class A_Motor: public pros::Motor {
 		public:
