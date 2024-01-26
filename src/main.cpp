@@ -150,9 +150,13 @@ void opcontrol()
 		// Launcher
 		if (ace::btn_launch.get_press())
 		{
-      		ace::launch_enabled = !ace::launch_enabled;
+      		ace::launch_enabled = true;
+
 			//ace::launch_reverse_enabled = false;
-		} 
+		} else {
+			ace::launch_enabled = false;
+
+		}
 	
 
 

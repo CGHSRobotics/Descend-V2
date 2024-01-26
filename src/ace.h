@@ -81,13 +81,13 @@ namespace ace {
 	/* ------------------------- Other Motors / Devices ------------------------- */
 	#define PORT_INTAKE_LEFT 4
 	#define PORT_INTAKE_RIGHT 13
-	#define PORT_LAUNCHER_LEFT 14
+	#define PORT_LAUNCHER_LEFT 10
 	#define PORT_LAUNCHER_RIGHT 6
 	#define PORT_BLOCKER 19
 	
 
 	#define PORT_VISION 10
-	#define PORT_IMU 5
+	#define PORT_IMU 14
 
 	/* ------------------------------- ADI Devices ------------------------------ */
  
@@ -526,7 +526,7 @@ namespace ace::auton {
 	 * @param rollerDegrees degrees to spin by
 	 */
 
-	extern void launch_auton(float time, float speed);
+	extern void launch_auton(float speed);
 
 	extern void drive_chassis(float distance, float speed, bool wait = true);
 
