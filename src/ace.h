@@ -83,7 +83,7 @@ namespace ace {
 	#define PORT_INTAKE_RIGHT 13
 	#define PORT_LAUNCHER_LEFT 10
 	#define PORT_LAUNCHER_RIGHT 6
-	#define PORT_BLOCKER 19
+
 	
 
 	#define PORT_VISION 10
@@ -160,8 +160,7 @@ namespace ace {
 
 	static bool intake_enabled = false;
 	static bool intake_reverse_enabled = false;
-	static bool blocker_enabled = false;
-	static bool blocker_down_enabled = false;
+	
 	//static bool launch_short_enabled = false;
 	//static bool launch_long_enabled = false;
 	static bool launch_enabled = false;
@@ -243,9 +242,8 @@ namespace ace {
 	// Motor for intake right
 	extern A_Motor intakeMotorRight;
 
-	//Motor for blocker 
-
-	extern A_Motor BlockerMotor;
+	
+	
 	
 	// Vision sensor
 	const pros::Vision visionSensor(PORT_VISION, pros::E_VISION_ZERO_CENTER);
@@ -290,10 +288,7 @@ namespace ace {
 	// Custom Button for Flapjack Toggle
 	static Btn_Digi btn_flap(pros::E_CONTROLLER_DIGITAL_X, cntr_master);
 
-	//Custom Button for blocker
-	//static Btn_Digi btn_blocker_up(pros::E_CONTROLLER_DIGITAL_R1, cntr_master);
-
-	//static Btn_Digi btn_blocker_down(pros::E_CONTROLLER_DIGITAL_R2, cntr_master);
+	
 
 	/* ---------------------------------- Both ---------------------------------- */
 
@@ -350,13 +345,7 @@ namespace ace {
 	 * @brief 	runs intake reverse
 	 *
 	 */
-	extern void blocker_up(bool enabled);
-
-	/**
-	 * @brief 	runs intake reverse
-	 *
-	 */
-	extern void blocker_down(bool enabled);
+	
 
 	/**
 	 * @brief	launch function, called once per frame
