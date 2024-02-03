@@ -536,8 +536,8 @@ namespace ace::auton {
 	};
 	extern int auton_selection_index;
 
-	extern void three_side();
-	extern void two_side();
+	extern void close_side();
+	extern void far_side();
 	extern void skills();
 	extern void score();
 	extern void contact();

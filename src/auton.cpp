@@ -50,11 +50,32 @@ void contact() {
 /* ========================================================================== */
 /*                              Three Side Auton                              */
 /* ========================================================================== */
-void three_side() {
-  /*drive_chassis(48, DRIVE_SPEED);
-  turn_chassis(180, TURN_SPEED);
-  drive_chassis(12, DRIVE_SPEED);
-  intake_toggle(true); */
+void far_side() {
+ 
+  drive_chassis(-5, DRIVE_SPEED);
+  drive_chassis(-5, DRIVE_SPEED);
+  turn_chassis(-45, TURN_SPEED);
+  drive_chassis(-30, DRIVE_SPEED);
+  drive_chassis(5, TURN_SPEED);
+  turn_chassis(50, TURN_SPEED);
+  drive_chassis(15, DRIVE_SPEED);
+  turn_chassis(100, TURN_SPEED);
+  drive_chassis(15, DRIVE_SPEED);
+  ace::intake(true);
+  drive_chassis(15, DRIVE_SPEED);
+  drive_chassis(5, DRIVE_SPEED);
+  drive_chassis(-5, DRIVE_SPEED);
+  turn_chassis(230, TURN_SPEED);
+  ace::intake(false);
+  ace::flap_toggle(true);
+  drive_chassis(10, DRIVE_SPEED);
+  intake_reverse(true);
+  drive_chassis(25, DRIVE_SPEED);
+  drive_chassis(-10, DRIVE_SPEED);
+
+  
+
+  
   // Dead
 }
 
@@ -63,22 +84,29 @@ void three_side() {
 /* ========================================================================== */
 /*                               Two Side Auton                               */
 /* ========================================================================== */
-void two_side() {
-  /*drive_chassis(43, DRIVE_SPEED);
-  turn_chassis(-90, TURN_SPEED);
-  ace::intake_reverse(true);
-  pros::delay(1000);
-  ace::intake_reverse(false);
-  drive_chassis(-8, DRIVE_SPEED);
-  turn_chassis(90, TURN_SPEED);
-  drive_chassis(-20, DRIVE_SPEED);
-  drive_chassis(3,DRIVE_SPEED);
-  turn_chassis(180, TURN_SPEED);
-  drive_chassis(46, DRIVE_SPEED);
-  turn_chassis(90, TURN_SPEED);
-  drive_chassis(34, DRIVE_SPEED);
+void close_side() {
+  drive_chassis(-5,DRIVE_SPEED);
+  drive_chassis(-10,DRIVE_SPEED);
+  turn_chassis(45, 50);
+  drive_chassis(-30, DRIVE_SPEED);
+  drive_chassis(3, DRIVE_SPEED);
+  turn_chassis(-30, TURN_SPEED);
+  drive_chassis(10, DRIVE_SPEED);
+  drive_chassis(5, DRIVE_SPEED);
+  turn_chassis(-75, TURN_SPEED);
+  ace::flap_toggle(true);
+  drive_chassis(-15, DRIVE_SPEED);
+  turn_chassis(100, TURN_SPEED);
+  ace::flap_toggle(false);
+  drive_chassis(25, DRIVE_SPEED);
+  turn_chassis(-50, TURN_SPEED);
+  drive_chassis(25,DRIVE_SPEED);
 
-  */
+
+
+
+
+  
 
   // Dead
 }

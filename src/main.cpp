@@ -90,7 +90,7 @@ void autonomous()
 	//ace::flap_toggle(true);
 	//ace::auton::drive_chassis(43, ace::DRIVE_SPEED);
 	//ace::auton::score();
-	ace::auton::skills();
+	ace::auton::close_side();
 	
 	/*if (curr_auton == "score")
 	{
@@ -222,7 +222,7 @@ void opcontrol()
 
 			ace::lock_enabled = !ace::lock_enabled;
 		}
-		
+
 		// Standby Enabled
 		if (ace::btn_standby.get_press_new())
 		{
