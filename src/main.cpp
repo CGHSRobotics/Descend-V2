@@ -50,6 +50,8 @@ void initialize()
 	ace::intakeMotorLeft.init();
 	ace::intakeMotorRight.init();
 	ace::launcherMotorLeft.init();
+	ace::LiftMotorLeft.init();
+	ace::LiftMotorRight.init();
 	pros::lcd::shutdown();
 
 
@@ -157,6 +159,29 @@ void opcontrol()
 			ace::launch_enabled = false;
 
 		}
+
+			// Launcher
+		if (ace::btn_lift_up.get_press())
+		{
+      		ace::lift_up_enabled = true;
+
+			//ace::launch_reverse_enabled = false;
+		} else {
+			ace::lift_up_enabled = false;
+
+		}
+
+			// Launcher
+		if (ace::btn_lift_down.get_press())
+		{
+      		ace::lift_down_enabled = true;
+
+			//ace::launch_reverse_enabled = false;
+		} else {
+			ace::lift_down_enabled = false;
+
+		}
+
 	
 
 
@@ -189,8 +214,15 @@ void opcontrol()
 		if (ace::btn_flap.get_press_new())
 		{
 			ace::flap_enabled = !ace::flap_enabled;
+
 		}
 
+		if(ace::btn_lock.get_press_new())
+		{
+
+			ace::lock_enabled = !ace::lock_enabled;
+		}
+		
 		// Standby Enabled
 		if (ace::btn_standby.get_press_new())
 		{
@@ -284,8 +316,30 @@ void opcontrol()
 				ace::intake(false);
 			}
 
+			if (ace::lift_up_enabled)
+			{
+				ace::lift_up(true);
+				break;
+			}
+			else
+			{
+				ace::lift_up(false);
+			}
+
+
+			if (ace::lift_down_enabled)
+			{
+				ace::lift_down(true);
+				break;
+			}
+			else
+			{
+				ace::lift_down(false);
+			}
 			// flapjack
 			ace::flap_toggle(ace::flap_enabled);
+
+			ace::lock_toggle(ace::lock_enabled);
 
 		}
 

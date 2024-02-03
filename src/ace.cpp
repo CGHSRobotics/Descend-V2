@@ -52,6 +52,10 @@ namespace ace
 
 	A_Motor intakeMotorRight(PORT_INTAKE_RIGHT,MOTOR_GEARSET_06, false);
 
+	A_Motor LiftMotorLeft(PORT_LIFT_LEFT,MOTOR_GEARSET_36, false);
+
+	A_Motor LiftMotorRight(PORT_LIFT_RIGHT,MOTOR_GEARSET_36, false);
+
 	
 	
 
@@ -262,6 +266,7 @@ namespace ace
 
 		flapPneumatics.set_value(false);
 		endgamePneumatics.set_value(false);
+		lockPneumatics.set_value(false);
 	}
 
 
@@ -304,7 +309,18 @@ namespace ace
 		}
 	}
 
-
+	void lock_toggle(bool enabled)
+	{
+		if (enabled)
+		{
+			lockPneumatics.set_value(1);
+			return;
+		}
+		else
+		{
+			lockPneumatics.set_value(0);
+		}
+	}
 
 	void intake(bool enabled)
 	{
@@ -338,8 +354,34 @@ namespace ace
 			intakeMotorLeft.spin_percent(0);
 			intakeMotorRight.spin_percent(0);
 		}
-
 	}
+	void lift_up(bool enabled)
+	{
+		if (enabled){
+			LiftMotorLeft.spin_percent(ace::LIFT_SPEED);
+			LiftMotorRight.spin_percent(ace::LIFT_SPEED);
+		
+		}
+		else{
+			LiftMotorLeft.spin_percent(0);
+			LiftMotorRight.spin_percent(0);
+		}
+	}
+
+	void lift_down(bool enabled)
+	{
+		if (enabled){
+			LiftMotorLeft.spin_percent(-ace::LIFT_SPEED);
+			LiftMotorRight.spin_percent(-ace::LIFT_SPEED);
+		
+		}
+		else{
+			LiftMotorLeft.spin_percent(0);
+			LiftMotorRight.spin_percent(0);
+		}
+	}
+
+	
 	/*
 	
 	

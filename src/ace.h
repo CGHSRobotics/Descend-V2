@@ -73,7 +73,7 @@ namespace ace {
 
 	/* --------------------------------- Chassis -------------------------------- */
 	#define PORT_CHASSIS_L_F -8
-	#define PORT_CHASSIS_L_B -18
+	#define PORT_CHASSIS_L_B -14
 
 	#define PORT_CHASSIS_R_F 15
 	#define PORT_CHASSIS_R_B 11
@@ -83,17 +83,22 @@ namespace ace {
 	#define PORT_INTAKE_RIGHT 13
 	#define PORT_LAUNCHER_LEFT 10
 	#define PORT_LAUNCHER_RIGHT 6
+	#define PORT_LIFT_LEFT -18
+	#define PORT_LIFT_RIGHT 1
+
 
 	
 
 	#define PORT_VISION 10
-	#define PORT_IMU 14
+	#define PORT_IMU 16
 
 	/* ------------------------------- ADI Devices ------------------------------ */
  
 	#define PORT_PNEU_ENDGAME { INTERNAL_ADI_PORT, 'G' }
 
 	#define PORT_PNEU_FLAP { INTERNAL_ADI_PORT, 'A' }
+
+	#define PORT_PNEU_LOCK {INTERNAL_ADI_PORT, 'B'}
 
 	#define PORT_SENSOR_LIGHT { INTERNAL_ADI_PORT, 'C' }
 
@@ -160,6 +165,9 @@ namespace ace {
 
 	static bool intake_enabled = false;
 	static bool intake_reverse_enabled = false;
+
+	static bool lift_up_enabled = false;
+	static bool lift_down_enabled = false;
 	
 	//static bool launch_short_enabled = false;
 	//static bool launch_long_enabled = false;
@@ -168,9 +176,12 @@ namespace ace {
 	static bool endgame_enabled = false;
 	static bool auto_targeting_enabled = false;
 	static bool flap_enabled = false;
+	static bool lock_enabled = false; 
 	extern bool is_red_alliance; 
 
 	extern float launch_speed;
+
+	extern float lift_speed;
 
 	/* ------------------------------- SPEEEEEEED ------------------------------- */
 
@@ -181,6 +192,8 @@ namespace ace {
 	// Launcher Speeds
 	
 	const float LAUNCH_SPEED = 100.0;
+
+	const float LIFT_SPEED = 75.0;
 	
 	const float LAUNCH_SPEED_STANDBY = LAUNCH_SPEED;
 	const float LAUNCHER_SPEED_CUTOFF = 5;
@@ -242,6 +255,11 @@ namespace ace {
 	// Motor for intake right
 	extern A_Motor intakeMotorRight;
 
+//Motor lift
+	extern A_Motor LiftMotorLeft;
+
+	extern A_Motor LiftMotorRight;
+
 	
 	
 	
@@ -253,6 +271,8 @@ namespace ace {
 
 	// Flap Pneumatics
 	const pros::ADIDigitalOut flapPneumatics(PORT_PNEU_FLAP, false);
+
+	const pros::ADIDigitalOut lockPneumatics(PORT_PNEU_LOCK, false);
 
 	// Endgame Pneumatics
 	const pros::ADIDigitalOut endgamePneumatics(PORT_PNEU_ENDGAME, false);
@@ -279,6 +299,10 @@ namespace ace {
 	// Custom Button for Launch
 	static Btn_Digi btn_launch(pros::E_CONTROLLER_DIGITAL_UP, cntr_master);
 
+	static Btn_Digi btn_lift_up(pros::E_CONTROLLER_DIGITAL_R1, cntr_master);
+
+	static Btn_Digi btn_lift_down(pros::E_CONTROLLER_DIGITAL_R2, cntr_master);
+
 	// Custon Button for Launch Reverse
 	//static Btn_Digi btn_launch_reverse(pros::E_CONTROLLER_DIGITAL_R2, cntr_master);
 
@@ -288,7 +312,8 @@ namespace ace {
 	// Custom Button for Flapjack Toggle
 	static Btn_Digi btn_flap(pros::E_CONTROLLER_DIGITAL_X, cntr_master);
 
-	
+	static Btn_Digi btn_lock(pros::E_CONTROLLER_DIGITAL_B, cntr_master);
+
 
 	/* ---------------------------------- Both ---------------------------------- */
 
@@ -341,6 +366,18 @@ namespace ace {
 	 */
 	extern void intake_reverse(bool enabled);
 
+
+	/**
+	 * @brief 	runs intake reverse
+	 *
+	 */
+	extern void lift_up(bool enabled);
+
+	/**
+	 * @brief 	runs intake reverse
+	 *
+	 */
+	extern void lift_down(bool enabled);
 /**
 	 * @brief 	runs intake reverse
 	 *
@@ -378,6 +415,14 @@ namespace ace {
 	 */
 
 	extern void flap_toggle(bool enabled);
+
+	/**
+	 * @brief	endgame toggle, minimum 200 msec timer on press
+	 *
+	 * @param enabled	bool whether enabled or not
+	 */
+
+	extern void lock_toggle(bool enabled);
 
 	/**
 	 * @brief 	calls flapjack toggle
