@@ -228,7 +228,7 @@ namespace ace
 	
 	void launch(float speed){
 		
-		launcherMotorRight.move_voltage(speed * 120);
+		//launcherMotorRight.move_voltage(speed * 120);
 		launcherMotorLeft.move_voltage(speed * 120);	
 
 	}

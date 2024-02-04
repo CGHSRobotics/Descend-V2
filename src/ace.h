@@ -82,12 +82,10 @@ namespace ace {
 	#define PORT_INTAKE_LEFT 4
 	#define PORT_INTAKE_RIGHT 13
 	#define PORT_LAUNCHER_LEFT 10
-	#define PORT_LAUNCHER_RIGHT 6
+	#define PORT_LAUNCHER_RIGHT -6
 	#define PORT_LIFT_LEFT -18
 	#define PORT_LIFT_RIGHT 1
 
-
-	
 
 	#define PORT_VISION 10
 	#define PORT_IMU 16
@@ -536,8 +534,8 @@ namespace ace::auton {
 	};
 	extern int auton_selection_index;
 
-	extern void close_side();
-	extern void far_side();
+	extern void offense_side();
+	extern void defense_side();
 	extern void skills();
 	extern void score();
 	extern void contact();

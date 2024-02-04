@@ -90,7 +90,7 @@ void autonomous()
 	//ace::flap_toggle(true);
 	//ace::auton::drive_chassis(43, ace::DRIVE_SPEED);
 	//ace::auton::score();
-	ace::auton::close_side();
+	ace::auton::offense_side();
 	
 	/*if (curr_auton == "score")
 	{
@@ -242,8 +242,7 @@ void opcontrol()
 		}
 
 		// Launcher Speed Increase
-		if (ace::btn_launch_speed_increase.get_press
-		()) 
+		if (ace::btn_launch_speed_increase.get_press()) 
 		{
 			ace::launch_speed += 2.5;
 		}
