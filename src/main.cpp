@@ -48,7 +48,6 @@ void initialize()
 	// init chassis
 	chassis.initialize();
 	ace::intakeMotorLeft.init();
-	ace::intakeMotorRight.init();
 	ace::launcherMotorLeft.init();
 	ace::LiftMotorLeft.init();
 	ace::LiftMotorRight.init();

@@ -82,7 +82,6 @@ namespace ace {
 	#define PORT_INTAKE_LEFT 4
 	#define PORT_INTAKE_RIGHT 13
 	#define PORT_LAUNCHER_LEFT 10
-	#define PORT_LAUNCHER_RIGHT -6
 	#define PORT_LIFT_LEFT -18
 	#define PORT_LIFT_RIGHT 1
 
@@ -191,7 +190,7 @@ namespace ace {
 	
 	const float LAUNCH_SPEED = 100.0;
 
-	const float LIFT_SPEED = 75.0;
+	const float LIFT_SPEED = 95.0;
 	
 	const float LAUNCH_SPEED_STANDBY = LAUNCH_SPEED;
 	const float LAUNCHER_SPEED_CUTOFF = 5;
@@ -244,8 +243,6 @@ namespace ace {
 
 	// Launcher motor
 	extern A_Motor launcherMotorLeft;
-
-	extern A_Motor LauncherMotorRight;
 
 	// Motor for intake left
 	extern A_Motor intakeMotorLeft;
