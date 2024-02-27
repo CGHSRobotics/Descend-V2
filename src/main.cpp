@@ -89,7 +89,7 @@ void autonomous()
 	//ace::flap_toggle(true);
 	//ace::auton::drive_chassis(43, ace::DRIVE_SPEED);
 	//ace::auton::score();
-	ace::auton::offense_side();
+	ace::auton::skills();
 	
 	/*if (curr_auton == "score")
 	{
