@@ -51,27 +51,47 @@ void contact() {
 /*                              Three Side Auton                              */
 /* ========================================================================== */
 void offense_side() {
- 
+ ace::lift_up(true);
+ pros::delay(200);
+ ace::lift_up(false);
 
-  drive_chassis(-12, DRIVE_SPEED);
-  turn_chassis(-45, TURN_SPEED);
-  drive_chassis(-15, DRIVE_SPEED);
-  drive_chassis(5, TURN_SPEED);
-  turn_chassis(45, TURN_SPEED);
-  drive_chassis(10, DRIVE_SPEED);
-  turn_chassis(85, TURN_SPEED);
-  drive_chassis(15, DRIVE_SPEED);
-  ace::intake(true);
-  drive_chassis(15, DRIVE_SPEED);
-  drive_chassis(-5, DRIVE_SPEED);
-  turn_chassis(220, TURN_SPEED);
-  ace::intake(false);
-  ace::flap_toggle(true);
-  intake_reverse(true);
-  drive_chassis(25, DRIVE_SPEED);
-  drive_chassis(-10, DRIVE_SPEED);
-  intake_reverse(false);
-  ace::flap_toggle(false);
+ drive_chassis(12,DRIVE_SPEED);
+ ace::intake(true);
+ pros::delay(200);
+ drive_chassis(-70, DRIVE_SPEED);
+ turn_chassis(145, TURN_SPEED);
+
+ ace::intake(false);
+ ace::intake_reverse(true);
+ drive_chassis(40, DRIVE_SPEED);
+ turn_chassis(100, TURN_SPEED);
+ drive_chassis(45, DRIVE_SPEED);
+ drive_chassis(-20, DRIVE_SPEED);
+ turn_chassis(17, TURN_SPEED);
+ ace::intake_reverse(false);
+ ace::intake(true);
+ drive_chassis(90, DRIVE_SPEED);
+ pros::delay(200);
+ turn_chassis(150, TURN_SPEED);
+ drive_chassis(35, DRIVE_SPEED);
+ ace::intake(false);
+ ace::intake_reverse(true);
+ pros::delay(400);
+ turn_chassis(35,TURN_SPEED);
+ drive_chassis(36, DRIVE_SPEED);
+ ace::intake(true);
+ pros::delay(300);
+ turn_chassis(180, TURN_SPEED);
+ ace::flap_toggle(true);
+ ace::intake(false);
+ ace::intake_reverse(true);
+ drive_chassis(70, DRIVE_SPEED);
+ drive_chassis(-30, DRIVE_SPEED);
+
+
+
+
+
   
 
   
@@ -86,12 +106,38 @@ void offense_side() {
 /*                               Two Side Auton                               */
 /* ========================================================================== */
 void defense_side() {
-  drive_chassis(60, DRIVE_SPEED);
-  //ace::intake_enabled(true, INTAKE_SPEED);
-  //ace::intake_enabled(false, INTAKE_SPEED);
-  drive_chassis(-50, DRIVE_SPEED);
+  
+  drive_chassis(-35, ace::AUTON_DRIVE_SPEED, true);
+  // 30
+  turn_chassis(40, ace::AUTON_TURN_SPEED, true);
+
+
+  drive_chassis(-40, ace::AUTON_DRIVE_SPEED, true);
+
+  drive_chassis(25, ace::AUTON_DRIVE_SPEED, true);
+  turn_chassis(40, TURN_SPEED);
+  drive_chassis(20, DRIVE_SPEED);
+  turn_chassis(-5, TURN_SPEED);
+  //turn_chassis(-130, TURN_SPEED);
+ // drive_chassis(72, DRIVE_SPEED);
+  //ace::intake(true);
+  //pros::delay(300);
+ // turn_chassis(-115, TURN_SPEED);
+  //drive_chassis(-115, DRIVE_SPEED);
+
   ace::flap_toggle(true);
-  turn_chassis(-60, TURN_SPEED);
+   pros::delay(300);
+  drive_chassis(20, DRIVE_SPEED);
+ turn_chassis(-30, TURN_SPEED);
+  flap_toggle(false);
+ // turn_chassis(150, TURN_SPEED);
+  //ace::intake_reverse(true);
+  drive_chassis(63, DRIVE_SPEED);
+  ace::intake_reverse(true);
+  pros::delay(500);
+  ace::intake_reverse(false);
+  
+  //ace::intake_reverse(false);
   
 
 
@@ -106,30 +152,51 @@ void defense_side() {
 /*                                   Skills                                   */
 /* ========================================================================== */
 void skills() {
-  drive_chassis(-12.3, ace::AUTON_DRIVE_SPEED, true);
+  drive_chassis(-35, ace::AUTON_DRIVE_SPEED, true);
   // 30
   turn_chassis(40, ace::AUTON_TURN_SPEED, true);
 
 
-  drive_chassis(-15, ace::AUTON_DRIVE_SPEED, true);
+  drive_chassis(-40, ace::AUTON_DRIVE_SPEED, true);
 
-  drive_chassis(14, ace::AUTON_DRIVE_SPEED, true);
+  drive_chassis(24, ace::AUTON_DRIVE_SPEED, true);
 
-  turn_chassis(140, ace::AUTON_TURN_SPEED, true);
+  turn_chassis(120, ace::AUTON_TURN_SPEED, true);
   drive_chassis( 5, DRIVE_SPEED, true);
 
-  ace::lift_up(true);
-  pros::delay(1000);
+  drive_chassis(20, ace::AUTON_DRIVE_SPEED, true);
 
-  ace::lift_up(false);
-
-  drive_chassis(-6, ace::AUTON_DRIVE_SPEED, true);
-  
   launch_auton(ace::launch_speed);
-  pros::delay(40000);
-  ace::launcherMotorLeft.move_voltage(LAUNCH_SPEED * 120);
-  ace::launcherMotorLeft.set_brake_mode(MOTOR_BRAKE_HOLD);
-  ace::launcherMotorLeft.brake();
+  pros::delay(33000);
+  launch_auton(0);
+
+  drive_chassis(-10, DRIVE_SPEED);
+  turn_chassis(0, TURN_SPEED);
+  drive_chassis(45, DRIVE_SPEED);
+  turn_chassis(-45, TURN_SPEED);
+  drive_chassis(135, DRIVE_SPEED);
+  turn_chassis(-140, TURN_SPEED);
+  drive_chassis(40, DRIVE_SPEED);
+  turn_chassis(-170, TURN_SPEED);
+  
+  drive_chassis(70, DRIVE_SPEED);
+
+  turn_chassis(-50, TURN_SPEED);
+  ace::flap_toggle(true);
+  drive_chassis(80, DRIVE_SPEED);
+  drive_chassis(-20, DRIVE_SPEED);
+  drive_chassis(40, DRIVE_SPEED); 
+  ace::flap_toggle(false);
+  drive_chassis(-70, DRIVE_SPEED);
+  turn_chassis(-65, TURN_SPEED);
+  drive_chassis(40, DRIVE_SPEED);
+  ace::flap_toggle(true);
+  turn_chassis(-100, TURN_SPEED);
+  drive_chassis(70, DRIVE_SPEED);
+  drive_chassis(-30, DRIVE_SPEED);
+
+
+
 
 // sad
   /*

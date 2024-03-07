@@ -4,16 +4,16 @@
 
 Drive chassis(
 	// Left Chassis Ports (negative port will reverse it!)
-	{ PORT_CHASSIS_L_F, PORT_CHASSIS_L_B },
+	{ PORT_CHASSIS_L_F, PORT_CHASSIS_L_B, PORT_CHASSIS_L_M},
 
 	// Right Chassis Ports (negative port will reverse it!)
-	{ PORT_CHASSIS_R_F,  PORT_CHASSIS_R_B },
+	{ PORT_CHASSIS_R_F,  PORT_CHASSIS_R_B, PORT_CHASSIS_R_M},
 
 	// IMU Port
 	PORT_IMU,
 
 	// Wheel Diameter (Remember, 4" wheels are actually 4.125!)
-	4.125,
+	2.75,
 
 	// Cartridge RPM
 	600,
