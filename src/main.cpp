@@ -47,17 +47,15 @@ void initialize()
 
 	// init chassis
 	chassis.initialize();
-	ace::intakeMotorLeft.init();
-	ace::launcherMotorLeft.init();
-	ace::LiftMotorLeft.init();
-	ace::LiftMotorRight.init();
+	ace::intakeMotor.init();
+	ace::LiftMotor.init();
 	pros::lcd::shutdown();
 
 
 	ace::endgame_timer.currTime = ace::endgame_timer.maxTime + 100;
 
 	// get ambient light sample
-	ace::ambient_light = ace::lightSensor.get_value();
+	//ace::ambient_light = ace::lightSensor.get_value();
 
 	// Go to main screen
 	lv_label_set_text(ace::lvgl::label_load_imu, "IMU Calibrate -  OK");
@@ -216,6 +214,12 @@ void opcontrol()
 
 		}
 
+		if (ace::btn_intake_lift.get_press_new())
+		{
+			ace::lift_intake_enabled = !ace::lift_intake_enabled;
+
+		}
+
 		if(ace::btn_lock.get_press_new())
 		{
 
@@ -253,10 +257,10 @@ void opcontrol()
 		}
 
 		// Light Sensor
-		if (ace::light_sensor_detect())
-		{
-			ace::update_cntr_haptic(".");
-		}
+		//if (ace::light_sensor_detect())
+		//{
+		//	ace::update_cntr_haptic(".");
+		//}
 
 		/* --------------------------- Chassis Tank Drive --------------------------- */
    		chassis.tank();
@@ -268,28 +272,8 @@ void opcontrol()
 		for (int i = 0; i < 1; i++)
 		{
 			 
-			ace::endgame_toggle(ace::endgame_enabled);
+			//ace::endgame_toggle(ace::endgame_enabled);
 
-			// Launch
-			if (ace::launch_enabled)
-			{
-				ace::launch(ace::launch_speed);
-
-      		} else {
-
-				ace::launch(0);
-			}
-
-			// Launch Reverse
-			/*if (ace::launch_reverse_enabled)
-			{
-			ace::launch_reverse(ace::launch_speed);
-
-      		} else {
-
-				ace::launch_reverse(0);
-			}
-			*/
 
 			
 			// Intake Reverse
@@ -339,18 +323,21 @@ void opcontrol()
 
 			ace::lock_toggle(ace::lock_enabled);
 
+			ace::pto_toggle(ace::pto_enabled);
+
+			ace::intake_LIFT_toggle(ace::lift_intake_enabled);
 		}
 
 		/* ------------------------- Controller Screen Draw ------------------------- */
 		// Line 1 - Master
 		ace::update_cntr_text(ace::cntr_master, 0,
 			(std::string)"Master" +
-			"  " + std::to_string((int)ace::launcherMotorLeft.get_temp()) + "F" + " " + std::to_string((int)pros::battery::get_capacity()) + "%");
+			"  " + std::to_string((int)ace::LiftMotor.get_temp()) + "F" + " " + std::to_string((int)pros::battery::get_capacity()) + "%");
  
 		// Line 1 - Partner
 		ace::update_cntr_text(ace::cntr_partner, 0,
 			(std::string)"Partner" +
-			"  " + std::to_string((int)ace::intakeMotorLeft.get_temp()) + "F" +
+			"  " + std::to_string((int)ace::intakeMotor.get_temp()) + "F" +
 			"  " + std::to_string((int)pros::battery::get_capacity()) + "%");
 
 		// Line 2

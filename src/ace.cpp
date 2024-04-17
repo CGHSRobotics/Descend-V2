@@ -42,18 +42,17 @@ namespace ace
 	util::timer intake_timer(2000);
 
 	// leds
-	pros::ADILed led(PORT_LED, 60);
 
-	A_Motor launcherMotorLeft(PORT_LAUNCHER_LEFT, MOTOR_GEARSET_36, true); //red
+	A_Motor LiftMotor(PORT_LIFT, MOTOR_GEARSET_36, true); //red
 
 
-	A_Motor intakeMotorLeft(PORT_INTAKE_LEFT, MOTOR_GEARSET_06, false); //blue
+	A_Motor intakeMotor(PORT_INTAKE, MOTOR_GEARSET_06, true); //blue
 
-	A_Motor intakeMotorRight(PORT_INTAKE_RIGHT,MOTOR_GEARSET_06, false);
+	A_Motor launcherMotor(PORT_INTAKE, MOTOR_GEARSET_06, false);
 
-	A_Motor LiftMotorLeft(PORT_LIFT_LEFT,MOTOR_GEARSET_36, false);
 
-	A_Motor LiftMotorRight(PORT_LIFT_RIGHT,MOTOR_GEARSET_36, false);
+
+
 
 	
 	
@@ -225,12 +224,7 @@ namespace ace
 
 	//launch triball
 	
-	void launch(float speed){
-		
 	
-		launcherMotorLeft.move_voltage(speed * 120);	
-
-	}
 
 
 	/*void launch_reverse(float speed){
@@ -240,30 +234,21 @@ namespace ace
 	}*/
 
 	// launch standby
-	void launch_standby(bool enabled, float speed)
-	{
-		curr_launching = false;
-		if (enabled)
-			launcherMotorLeft.move_velocity(speed * 6);
-			
-		else
-			launcherMotorLeft.move_velocity(0);
-			
-	}
+
 
 	// reset motors to 0 voltage
 	void reset_motors()
 	{	
-		launcherMotorLeft.move_voltage(0);
-		intakeMotorLeft.move_voltage(0);
-		intakeMotorRight.move_voltage(0);
+	
+		intakeMotor.move_voltage(0);
+	
 	
 	
 
 		launcher_standby_enabled = false;
 
 		flapPneumatics.set_value(false);
-		endgamePneumatics.set_value(false);
+	
 		lockPneumatics.set_value(false);
 	}
 
@@ -285,27 +270,6 @@ namespace ace
 	}
 
 	
-	// toggles endgame
-	void endgame_toggle(bool enabled)
-	{
-		if (enabled)
-		{
-			endgame_timer.reset();
-			endgamePneumatics.set_value(1);
-			return;
-		}
-		else
-		{
-			if (endgame_timer.done())
-			{
-				//endgamePneumatics.set_value(0);
-				return;
-			}
-
-			endgame_timer.update(20);
-			//endgamePneumatics.set_value(0);
-		}
-	}
 
 	void lock_toggle(bool enabled)
 	{
@@ -320,12 +284,38 @@ namespace ace
 		}
 	}
 
+
+	void pto_toggle(bool enabled)
+	{
+		if (enabled)
+		{
+			PTOPneumatics.set_value(1);
+			return;
+		}
+		else
+		{
+			PTOPneumatics.set_value(0);
+		}
+	}
+
+	void intake_LIFT_toggle(bool enabled)
+	{
+		if (enabled)
+		{
+			intakePneumatics.set_value(1);
+			return;
+		}
+		else
+		{
+			intakePneumatics.set_value(0);
+		}
+	}
 	void intake(bool enabled)
 	{
 		// intake enabled
 		if (enabled)
 		{
-			intakeMotorLeft.spin_percent(INTAKE_SPEED);
+			intakeMotor.spin_percent(INTAKE_SPEED);
 			
 
 		}
@@ -334,7 +324,7 @@ namespace ace
 		else
 		{
 			intake_timer.reset();
-			intakeMotorLeft.spin_percent(0);
+			intakeMotor.spin_percent(0);
 			
 
 		}
@@ -343,39 +333,39 @@ namespace ace
 	void intake_reverse(bool enabled)
 	{
 		if (enabled) {
-			intakeMotorLeft.spin_percent(-INTAKE_SPEED);
-			intakeMotorRight.spin_percent(-INTAKE_SPEED);
+			intakeMotor.spin_percent(-INTAKE_SPEED);
+		
 		
 
 
 		}else {
-			intakeMotorLeft.spin_percent(0);
-			intakeMotorRight.spin_percent(0);
+			intakeMotor.spin_percent(0);
+		
 		}
 	}
 	void lift_up(bool enabled)
 	{
 		if (enabled){
-			LiftMotorLeft.spin_percent(ace::LIFT_SPEED);
-			LiftMotorRight.spin_percent(ace::LIFT_SPEED);
+			LiftMotor.spin_percent(-ace::LIFT_SPEED);
+		
 		
 		}
 		else{
-			LiftMotorLeft.spin_percent(0);
-			LiftMotorRight.spin_percent(0);
+			LiftMotor.spin_percent(0);
+			
 		}
 	}
 
 	void lift_down(bool enabled)
 	{
 		if (enabled){
-			LiftMotorLeft.spin_percent(-ace::LIFT_SPEED);
-			LiftMotorRight.spin_percent(-ace::LIFT_SPEED);
+			LiftMotor.spin_percent(ace::LIFT_SPEED);
+			
 		
 		}
 		else{
-			LiftMotorLeft.spin_percent(0);
-			LiftMotorRight.spin_percent(0);
+			LiftMotor.spin_percent(0);
+			
 		}
 	}
 
@@ -414,23 +404,6 @@ namespace ace
 
 	bool current_detecting = false;
 
-	bool light_sensor_detect()
-	{
-		// if is detecting disk
-		if ((lightSensor.get_value() >= ambient_light * light_diff_factor)) {
-			current_detecting = true;
-		}
-		// no disk
-		else {
-			if (current_detecting)
-			{
-				current_detecting = false;
-				return true;
-			}
-		}
-
-		return false;
-	}
 
 
 

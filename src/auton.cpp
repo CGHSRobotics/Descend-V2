@@ -288,9 +288,9 @@ void auton_page_down() {
 void roller_auton(float rollerDegrees) {
   float actual_degrees = rollerDegrees * 3.0;
   // Untested, previously only for 1 motor
-  intakeMotorLeft.move_relative(actual_degrees, 100);
-  intakeMotorRight.move_relative(actual_degrees, 100);
-  while (intakeMotorLeft.is_stopped() == 0) {
+  intakeMotor.move_relative(actual_degrees, 100);
+
+  while (intakeMotor.is_stopped() == 0) {
     pros::delay(ez::util::DELAY_TIME);
   }
 }
@@ -354,12 +354,12 @@ void launch_auton(float speed) {
 }
 
 /* ------------------------------ Endgame Auton ----------------------------- */
-void endgame_auton() {
+/*void endgame_auton() {
   endgame_toggle(true);
   while (!endgame_timer.done()) {
     pros::delay(ez::util::DELAY_TIME);
     endgame_toggle(false);
   }
   endgame_toggle(false);
-}
+}*/
 }  // namespace ace::auton

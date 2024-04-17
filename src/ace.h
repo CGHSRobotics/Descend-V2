@@ -72,37 +72,36 @@ namespace ace {
 	/* ========================================================================== */
 
 	/* --------------------------------- Chassis -------------------------------- */
-	#define PORT_CHASSIS_L_F -8
-	#define PORT_CHASSIS_L_B -14
-	#define PORT_CHASSIS_L_M 13
+	#define PORT_CHASSIS_L_F -6
+	#define PORT_CHASSIS_L_B -7
+	#define PORT_CHASSIS_L_M -9
 
-	#define PORT_CHASSIS_R_F 15
-	#define PORT_CHASSIS_R_B 11
-	#define PORT_CHASSIS_R_M 19
+	#define PORT_CHASSIS_R_F 16
+	#define PORT_CHASSIS_R_B 15
+	#define PORT_CHASSIS_R_M 12
 
 	/* ------------------------- Other Motors / Devices ------------------------- */
-	#define PORT_INTAKE_LEFT 4
-	#define PORT_INTAKE_RIGHT 20
-	#define PORT_LAUNCHER_LEFT 10
-	#define PORT_LIFT_LEFT -18
-	#define PORT_LIFT_RIGHT 1
+	#define PORT_INTAKE -20
+	#define PORT_LAUNCHER 10
+	#define PORT_LIFT 2
 
 
 	#define PORT_VISION 10
-	#define PORT_IMU 16
+	#define PORT_IMU 5
 
 	/* ------------------------------- ADI Devices ------------------------------ */
  
-	#define PORT_PNEU_ENDGAME { INTERNAL_ADI_PORT, 'G' }
+
 
 	#define PORT_PNEU_FLAP { INTERNAL_ADI_PORT, 'A' }
 
 	#define PORT_PNEU_LOCK {INTERNAL_ADI_PORT, 'B'}
 
-	#define PORT_SENSOR_LIGHT { INTERNAL_ADI_PORT, 'C' }
+	
 
-	#define PORT_LED { INTERNAL_ADI_PORT, 'D' }
+	#define PORT_PTO_PISTON { INTERNAL_ADI_PORT, 'E' }
 
+	#define PORT_INTAKE_LIFT { INTERNAL_ADI_PORT, 'G' }
 
 
 	/* ========================================================================== */
@@ -176,6 +175,9 @@ namespace ace {
 	static bool auto_targeting_enabled = false;
 	static bool flap_enabled = false;
 	static bool lock_enabled = false; 
+	static bool pto_enabled = false;
+	static bool lift_intake_enabled = false;
+
 	extern bool is_red_alliance; 
 
 	extern float launch_speed;
@@ -243,19 +245,17 @@ namespace ace {
 
 	/* ------------------------- Other Motors / Devices ------------------------- */
 
-	// Launcher motor
-	extern A_Motor launcherMotorLeft;
+	
 
 	// Motor for intake left
-	extern A_Motor intakeMotorLeft;
+	extern A_Motor intakeMotor;
 
-	// Motor for intake right
-	extern A_Motor intakeMotorRight;
+	extern A_Motor launcherMotor;
 
 //Motor lift
-	extern A_Motor LiftMotorLeft;
+	extern A_Motor LiftMotor;
 
-	extern A_Motor LiftMotorRight;
+
 
 	
 	
@@ -271,14 +271,15 @@ namespace ace {
 
 	const pros::ADIDigitalOut lockPneumatics(PORT_PNEU_LOCK, false);
 
+	
+	const pros::ADIDigitalOut PTOPneumatics(PORT_PNEU_LOCK, false);
+
+	const pros::ADIDigitalOut intakePneumatics(PORT_INTAKE_LIFT, false);
 	// Endgame Pneumatics
-	const pros::ADIDigitalOut endgamePneumatics(PORT_PNEU_ENDGAME, false);
+
 
 
 	// Light Sensor for disk launching
-	const pros::ADILightSensor lightSensor(PORT_SENSOR_LIGHT);
-
-	extern pros::ADILed led;
 
 
 	/* ========================================================================== */
@@ -309,9 +310,11 @@ namespace ace {
 	// Custom Button for Flapjack Toggle
 	static Btn_Digi btn_flap(pros::E_CONTROLLER_DIGITAL_X, cntr_master);
 
-	static Btn_Digi btn_lock(pros::E_CONTROLLER_DIGITAL_B, cntr_master);
+	static Btn_Digi btn_lock(pros::E_CONTROLLER_DIGITAL_DOWN, cntr_master);
 
+	static Btn_Digi btn_PTO(pros::E_CONTROLLER_DIGITAL_B, cntr_master);
 
+	static Btn_Digi btn_intake_lift(pros::E_CONTROLLER_DIGITAL_Y, cntr_master);
 	/* ---------------------------------- Both ---------------------------------- */
 
 	// Custom Button for Standby
@@ -382,14 +385,6 @@ namespace ace {
 	
 
 	/**
-	 * @brief	launch function, called once per frame
-	 *
-	 * @param speed		speed at which to launch disks
-	 * @param isLong	bool whether is long launch or not
-	 */
-	extern void launch(float speed);
-
-	/**
 	//// * @brief	launch function, called once per frame
 	 *
 	// * @param speed		speed at which to launch disks
@@ -421,12 +416,20 @@ namespace ace {
 
 	extern void lock_toggle(bool enabled);
 
+
+		/**
+	 * @brief	endgame toggle, minimum 200 msec timer on press
+	 *
+	 * @param enabled	bool whether enabled or not
+	 */
+
+	extern void pto_toggle(bool enabled);
 	/**
 	 * @brief 	calls flapjack toggle
 	 *
 	 */
 
-	extern void endgame_toggle(bool enabled);
+	//extern void endgame_toggle(bool enabled);
 
 	/**
 	 * @brief 	calls endgame toggle in skills for auton
@@ -439,6 +442,14 @@ namespace ace {
 	 *
 	 */
 	extern void cata_toggle(bool enabled);
+
+		/**
+	 * @brief	endgame toggle, minimum 200 msec timer on press
+	 *
+	 * @param enabled	bool whether enabled or not
+	 */
+
+	extern void intake_LIFT_toggle(bool enabled);
 
 	/**
 	 * @brief 	resets motors when called
@@ -459,7 +470,7 @@ namespace ace {
 
 	/* ------------------------------ Light Sensor ------------------------------ */
 
-	extern bool light_sensor_detect();
+	//extern bool light_sensor_detect();
 
 	/* ========================================================================== */
 	/*                           Controller Screen Task                           */
